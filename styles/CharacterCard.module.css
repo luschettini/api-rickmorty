@@ -1,7 +1,8 @@
 .card {
     width: 275px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.422);
     padding: 1rem;
+    border: 0.2rem solid rgb(0, 0, 0);
     border-radius: 15px;
     text-align: center;
     transition: transform 0.25s;
