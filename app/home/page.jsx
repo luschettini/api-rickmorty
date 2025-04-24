@@ -18,7 +18,6 @@ export default function Home() {
 
   const fetchCharacters = async (name, pageNumber) => {
     setLoading(true);
-
     try {
       const { data } = await axios.get(`https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${name}`);
       setCharacters(data.results);
@@ -31,19 +30,16 @@ export default function Home() {
       setLoading(false);
   }
 
-
-    try {
-      const { data } = await axios.get(
-        `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${name}`
-      ); 
-      setCharacters(data.results); 
-      setTotalPages(data.info.pages);
-      setNotFound(false);
-    } catch {
-      setCharacters([]); 
-      setNotFound(true);
-    }
-  };
+  try {
+    const { data } = await axios.get(`https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${name}`);
+    setCharacters(data.results);
+    setTotalPages(data.info.pages);
+    setNotFound(false);
+} catch {
+    setCharacters([]);
+    setNotFound(true);
+}
+};
 
   useEffect(() => {
     fetchCharacters(search.trim(), page); 
@@ -111,6 +107,7 @@ export default function Home() {
                 <button onClick={() => setPage((p) => Math.min(p + 1, totalPages))} disabled={page === totalPages || notFound} className={styles.buttonNav}>
                     Próxima Página
                 </button>
+
                 {notFound && (
                 <h1 className={styles.notFound}>Nenhum personagem encontrado 😢</h1>
           )}
@@ -121,23 +118,22 @@ export default function Home() {
                         <Loader />
                     </div>
                 ) : (
-                <div className={styles.grid}>
-                {characters.map((char) => (
-                    <CharacterCard key={char.id} character={char} onClick={() => handleCardClick(char)} />
-                ))}
-            </div>
-        )}
+                    <div className={styles.grid}>
+                        {characters.map((char) => (
+                            <CharacterCard key={char.id} character={char} onClick={() => handleCardClick(char)} />
+                        ))}
+                    </div>
+                )}
 
-
-      <div className={styles.grid}>
-        {characters.map((char) => (
-          <CharacterCard
+<div className={styles.grid}>
+    {characters.map((char) => (
+        <CharacterCard
             key={char.id}
             character={char}
             onClick={() => handleCardClick(char.name)}
-          />
-        ))}
-      </div>
-    </div>
-  );
+        />
+    ))}
+</div>
+        </div>
+    )
 }
