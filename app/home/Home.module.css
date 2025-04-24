@@ -1,5 +1,5 @@
 .container {
-    background-image: url('/noite.png');
+    background-image: url('/fundo.png');
     background-size: cover;
     object-fit: cover;
     background-position: center;
@@ -32,7 +32,7 @@
   font-size: 1rem;
   background-color: #ffffff57;
   color: white;
-  border: 1px solid #00c6ff55;
+  border: 1px solid #204eab55;
   backdrop-filter: blur(4px);
   outline: none;
   transition: all 0.3s ease;
@@ -104,7 +104,7 @@
 .pageIndicator {
   font-weight: bold;
   font-size: 1.5rem;
-  background-color: white;
+  background-color: rgb(184, 207, 255);
   padding: 8px 16px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
@@ -120,9 +120,9 @@
 .notFound {
   font-size: 2rem;
   text-align: center;
-  color: tomato;
+  color: rgb(130, 217, 255);
   margin-top: 4rem;
-  text-shadow: 1px 1px 3px black;
+  text-shadow: 1px 1px 3px rgb(20, 151, 184);
 }
 
 .grid {
