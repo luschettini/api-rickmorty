@@ -111,10 +111,10 @@ export default function Home() {
                 <button onClick={() => setPage((p) => Math.min(p + 1, totalPages))} disabled={page === totalPages || notFound} className={styles.buttonNav}>
                     Próxima Página
                 </button>
+            </div>
                 {notFound && (
                 <h1 className={styles.notFound}>Nenhum personagem encontrado 😢</h1>
-          )}
-            </div>
+            )}
             
 
   
